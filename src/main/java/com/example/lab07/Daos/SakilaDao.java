@@ -8,12 +8,13 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class SakilaDao {
-    private String user = "root";
-    private String pass = "root";
-    private String url = "jdbc:mysql://localhost:3306/sakila";
 
-    public ArrayList<Bactor> listarActor(){
+
+    public static ArrayList<Bactor> listarActor(){
         ArrayList<Bactor> listaActores = new ArrayList<>();
+        private String user = "root";
+        private String pass = "root";
+        private String url = "jdbc:mysql://localhost:3306/sakila";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -43,8 +44,11 @@ public class SakilaDao {
         }
         return  listaActores;
     }
-    public ArrayList<Bcategory> listarCategoria(){
+    public static ArrayList<Bcategory> listarCategoria(){
         ArrayList<Bcategory> listaCategorias = new ArrayList<>();
+        private String user = "root";
+        private String pass = "root";
+        private String url = "jdbc:mysql://localhost:3306/sakila";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -72,8 +76,11 @@ public class SakilaDao {
         }
     }
 
-    public ArrayList<Bfilm> listarPelicula(){
+    public static ArrayList<Bfilm> listarPelicula(){
         ArrayList<Bfilm> listaPeliculas = new ArrayList<>();
+        private String user = "root";
+        private String pass = "root";
+        private String url = "jdbc:mysql://localhost:3306/sakila";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
