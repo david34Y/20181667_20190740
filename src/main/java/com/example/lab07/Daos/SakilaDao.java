@@ -34,6 +34,7 @@ public class SakilaDao {
 
                 bActor.setActor_id(rs.getInt(1));
                 bActor.setName(rs.getString(2));
+                listaActores.add(bActor);
 
             }
 
@@ -62,6 +63,7 @@ public class SakilaDao {
                 Bcategory bCat = new Bcategory();
 
                 bCat.setCantidad(rs.getInt(3));
+                listaCategorias.add(bCat);
 
             }
 
@@ -97,6 +99,7 @@ public class SakilaDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return listaPeliculas;
     }
 
 }
