@@ -12,9 +12,9 @@ public class SakilaDao {
 
     public static ArrayList<Bactor> listarActor(){
         ArrayList<Bactor> listaActores = new ArrayList<>();
-        private String user = "root";
-        private String pass = "root";
-        private String url = "jdbc:mysql://localhost:3306/sakila";
+         String user = "root";
+         String pass = "root";
+         String url = "jdbc:mysql://localhost:3306/sakila";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -46,9 +46,9 @@ public class SakilaDao {
     }
     public static ArrayList<Bcategory> listarCategoria(){
         ArrayList<Bcategory> listaCategorias = new ArrayList<>();
-        private String user = "root";
-        private String pass = "root";
-        private String url = "jdbc:mysql://localhost:3306/sakila";
+         String user = "root";
+         String pass = "root";
+         String url = "jdbc:mysql://localhost:3306/sakila";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -74,13 +74,14 @@ public class SakilaDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return listaCategorias;
     }
 
     public static ArrayList<Bfilm> listarPelicula(){
         ArrayList<Bfilm> listaPeliculas = new ArrayList<>();
-        private String user = "root";
-        private String pass = "root";
-        private String url = "jdbc:mysql://localhost:3306/sakila";
+         String user = "root";
+         String pass = "root";
+         String url = "jdbc:mysql://localhost:3306/sakila";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
