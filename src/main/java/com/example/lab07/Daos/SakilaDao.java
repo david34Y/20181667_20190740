@@ -1,5 +1,9 @@
 package com.example.lab07.Daos;
 
+import com.example.lab07.Beans.Bactor;
+import com.example.lab07.Beans.Bcategory;
+import com.example.lab07.Beans.Bfilm;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -8,8 +12,8 @@ public class SakilaDao {
     private String pass = "root";
     private String url = "jdbc:mysql://localhost:3306/sakila";
 
-    public ArrayList<BActor> listarActor(){
-        ArrayList<BActor> listaActores = new ArrayList<>();
+    public ArrayList<Bactor> listarActor(){
+        ArrayList<Bactor> listaActores = new ArrayList<>();
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -26,9 +30,9 @@ public class SakilaDao {
                      "group by a.actor_id having count(*) >12");){
 
             while (rs.next()) {
-                BActor bActor = new BActor();
+                Bactor bActor = new Bactor();
 
-                bActor.setIdActor(rs.getInt(1));
+                bActor.setActor_id(rs.getInt(1));
                 bActor.setName(rs.getString(2));
 
             }
@@ -36,10 +40,10 @@ public class SakilaDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return  listaClientes;
+        return  listaActores;
     }
-    public ArrayList<BCategory> listarCategoria(){
-        ArrayList<BCategory> listaCategorias = new ArrayList<>();
+    public ArrayList<Bcategory> listarCategoria(){
+        ArrayList<Bcategory> listaCategorias = new ArrayList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -55,7 +59,7 @@ public class SakilaDao {
                      "group by a.actor_id having count(*) >12");){
 
             while (rs.next()) {
-                BCategory bCat = new BCategory();
+                Bcategory bCat = new Bcategory();
 
                 bCat.setCantidad(rs.getInt(3));
 
@@ -66,8 +70,8 @@ public class SakilaDao {
         }
     }
 
-    public ArrayList<BFilm> listarPelicula(){
-        ArrayList<BFilm> listaPeliculas = new ArrayList<>();
+    public ArrayList<Bfilm> listarPelicula(){
+        ArrayList<Bfilm> listaPeliculas = new ArrayList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -83,9 +87,10 @@ public class SakilaDao {
                      "group by a.actor_id having count(*) >12");){
 
             while (rs.next()) {
-                BFilm bFilm = new BFilm();
+                Bfilm bFilm = new Bfilm();
 
                 bFilm.setCantidad(rs.getInt(3));
+                listaPeliculas.add(bFilm);
 
             }
 
