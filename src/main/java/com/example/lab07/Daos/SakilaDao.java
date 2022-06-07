@@ -81,10 +81,10 @@ public class SakilaDao {
 
         try (Connection connection = DriverManager.getConnection(url, user, pass);
              Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery("select a.actor_id, concat(upper(first_name), \" \", upper(last_name)) as 'Nombre', count(name) as 'N° categorias'\n" +
-                     "from actor a, film_actor fa, film f, film_category fc, category c\n" +
-                     "where a.actor_id = fa.actor_id and fa.film_id = f.film_id and f.film_id = fc.film_id and fc.category_id = c.category_id\n" +
-                     "group by a.actor_id having count(*) >12");){
+             ResultSet rs = stmt.executeQuery("select a.actor_id, concat(upper(first_name), \" \", upper(last_name)) as 'Nombre', count(title) as 'N° peliculas'\n" +
+                     "from actor a, film_actor fa, film f\n" +
+                     "where a.actor_id = fa.actor_id and fa.film_id = f.film_id\n" +
+                     "group by a.actor_id having count(*) > 20");){
 
             while (rs.next()) {
                 Bfilm bFilm = new Bfilm();
